@@ -1,0 +1,136 @@
+/* Aseguramos que el body y html ocupen toda la altura disponible */
+html, body {
+   margin: 0;
+   padding: 0;
+   height: 100%;  /* Aseguramos que ocupen toda la altura de la pantalla */
+   background-color: black; /* Fondo negro */
+   overflow: hidden; /* Evitar barras de desplazamiento */
+}
+
+#wrapper {
+   height: 100%; /* Asegura que el contenedor del juego ocupe toda la altura de la pantalla */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center; /* Centra el contenido */
+   background-color: black; /* Fondo negro para el contenedor del juego */
+}
+
+#game {
+   width: 90%; /* Ancho del contenedor del juego */
+   max-width: 700px;
+   display: grid; /* Usamos grid para evitar movimientos no deseados */
+   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* Distribución uniforme */
+   gap: 0.5rem; /* Espaciado entre las cartas */
+   justify-content: center;
+   align-items: center;
+}
+
+
+
+#gameContainer {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+   padding-top: 80px; /* Ajustamos el espacio para no superponerse con los puntajes */
+}
+
+#stats {
+   color: white;
+   padding: 1rem;
+   text-align: center;
+   font-size: 1.5rem;
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+}
+
+#scores {
+   display: flex;
+   justify-content: center;
+   gap: 2rem;
+}
+
+#turn {
+   font-size: 1.8rem;
+   font-weight: bold;
+}
+
+/* Ajusta el margen superior para separar el mensaje del tablero */
+#winnerMessage {
+   /*margin-top: 10px;*/ /* Ajusta este valor según el espacio que desees */
+   font-size: 2rem;
+   color: white;
+   text-align: center;
+}
+
+
+#game {
+   margin-top: 80px; /* Ajusta este valor según el espacio que desees */
+   width: 90%; /* Ancho del contenedor del juego */
+   max-width: 700px;
+   display: grid; /* Usamos grid para evitar movimientos no deseados */
+   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* Distribución uniforme */
+   gap: 0.5rem; /* Espaciado entre las cartas */
+   justify-content: center;
+   align-items: center;
+}
+
+.card {
+   width: 70px; /* Tamaño de la carta */
+   height: 100px; /* Altura de la carta */
+   margin: 0; /* Sin márgenes para evitar movimientos */
+   position: relative;
+   transition: transform 0.5s ease; /* Transición solo para la rotación */
+   transform-style: preserve-3d;
+}
+
+.card.active {
+   transform: rotateY(180deg); /* Volteo de la carta sin desplazamiento */
+}
+
+.card div {
+   width: 100%;
+   height: 100%;
+   border-radius: 0.5rem; /* Bordes redondeados */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: absolute;
+   backface-visibility: hidden; /* Esconde la cara trasera cuando está de frente */
+   pointer-events: none;
+}
+
+.card .face {
+   background: #EA282A;
+   transform: rotateY(180deg);
+   color: black;
+   font-size: 3rem;
+}
+
+.card .back {
+   border: 2px solid #EA282A;
+   background: url(sig-no.png) center / contain no-repeat;
+}
+
+/* para el boton de reseter */
+#resetButton {
+   position: absolute;
+   bottom: 2rem; /* Ajusta la distancia desde la parte inferior */
+   left: 50%;
+   transform: translateX(-50%);
+   padding: 0.5rem 1rem;
+   font-size: 1rem;
+   background: #EA282A;
+   color: white;
+   border: none;
+   border-radius: 0.5rem;
+   cursor: pointer;
+   transition: background 0.3s ease;
+}
+
+#resetButton:hover {
+   background: #C22021;
+}
